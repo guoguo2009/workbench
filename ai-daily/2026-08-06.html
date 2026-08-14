@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 日报 · 2026年8月6日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    background: #0f0f17;
+    color: #e0e0e8;
+    line-height: 1.8;
+  }
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+  .header {
+    text-align: center;
+    padding: 48px 0 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 40px;
+  }
+  .header .date-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #a78bfa, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header .subtitle {
+    color: #6b7280;
+    font-size: 15px;
+  }
+  .focus-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .focus-tags span {
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.25);
+    color: #a78bfa;
+    padding: 3px 12px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+  }
+  .card:hover {
+    border-color: rgba(99,102,241,0.3);
+  }
+  .card .index {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6366f1;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #f0f0f5;
+  }
+  .card .summary {
+    color: #c4c4d0;
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+  .card .why {
+    background: rgba(99,102,241,0.06);
+    border-left: 3px solid #6366f1;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #a78bfa;
+    line-height: 1.7;
+  }
+  .card .why strong {
+    color: #c4b5fd;
+  }
+  .card .source {
+    font-size: 12px;
+    color: #4b5563;
+    margin-top: 12px;
+  }
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 40px;
+    color: #4b5563;
+    font-size: 13px;
+  }
+  .stats-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  .stat-item {
+    text-align: center;
+  }
+  .stat-item .num {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #a78bfa, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-item .label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 40px; }
+    .card { padding: 20px; }
+    .header h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="date-badge">2026 年 8 月 6 日 · 星期四</div>
+    <h1>AI 日报</h1>
+    <p class="subtitle">聚焦 AI Coding &amp; 具身智能 | 筛选 5 条核心动态</p>
+    <div class="focus-tags">
+      <span>AI Coding</span><span>具身智能</span><span>人形机器人</span><span>编程智能体</span>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="num">82.9%</div><div class="label">Muse Code Terminal-Bench</div></div>
+    <div class="stat-item"><div class="num">¥935亿</div><div class="label">H1 具身智能融资</div></div>
+    <div class="stat-item"><div class="num">15,000台</div><div class="label">Agibot 累计下线</div></div>
+    <div class="stat-item"><div class="num">350+</div><div class="label">Figure 03 累计交付</div></div>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="index">AI CODING · 重磅发布</div>
+    <h2>Meta 发布首款 AI 编程智能体 Muse Code，开启价格战</h2>
+    <p class="summary">
+      当地时间 8 月 5 日，Meta 正式推出首款 AI 编程智能体 Muse Code（测试版），扎克伯格亲自在 X 平台官宣。产品搭载专为代码场景训练的 Muse Spark 1.2 模型，支持从大型代码仓库变更规划、代码撰写到运行验证的全流程自主开发，还可同时调度多个持久化子智能体并行工作。
+    </p>
+    <p class="summary">
+      Terminal-Bench 2.1 得分为 82.9%，超越 OpenAI Codex（81.8%）但落后于 Claude Code + Opus 5（86.7%）。定价极具攻击性：输入每百万 token 1.25 美元，输出 4.25 美元，创作者版再便宜 10 倍以上。独家特性包括崩溃可恢复、最长连续运行 24 小时、零数据留存选项。
+    </p>
+    <div class="why">
+      <strong>值得关注：</strong>这是 Meta 首次正面挑战 Anthropic 和 OpenAI 的 AI 编程领地。Muse Code 的打法不是拼性能天花板，而是以「极致性价比 + 工程可靠性」切入。考虑到 Meta 庞大的开发者生态和全球开放 API（Muse Spark 1.2 首次扩展至美国以外），这可能是 AI Coding 从「精英工具」走向「全民基础设施」的关键转折点。
+    </div>
+    <div class="source">来源：财联社、CNBC、kingy.ai 独立测评 | 2026-08-06</div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="index">具身智能 · 技术突破</div>
+    <h2>Figure 03 自主攀爬工业梯子：移动操作耦合首次完整实现</h2>
+    <p class="summary">
+      Figure AI 创始人 Brett Adcock 在 X 上发布视频，展示 Figure 03 在实验室环境中自主攀爬工业梯子——无遥控、无人工协助、无预设动作序列。这是具身智能领域首次将实时视觉伺、手部抓握和腿部动态平衡三种能力耦合进同一动态任务。
+    </p>
+    <p class="summary">
+      技术方面，Figure 03 依赖三层 Helix 02 架构：System 2（~1Hz）负责语义理解与动作分解，System 1（~200Hz）负责实时运动控制，中间层负责协调。量产方面，Figure 03 产量已从每天 1 台提升至每小时 1 台，累计交付超 350 台，C 轮估值约 390 亿美元。
+    </p>
+    <div class="why">
+      <strong>值得关注：</strong>爬梯子被具身智能圈视为标志性事件，因为它意味着「移动操作耦合」第一次以完整形态出现——人形机器人此前演示多是「走路归走路、抓取归抓取」。产业意义上，首次宣告人类建造的物理环境中没有机器人进不去的区域。但需注意：这是实验室演示，成功率、测试条件和失败数据均未披露。虎嗅评论一针见血：「2026 年人形机器人最大的叙事风险，就是把演示当验收。」
+    </div>
+    <div class="source">来源：虎嗅 APP · 潮涌AI | 2026-08-06</div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="index">AI CODING · 生态格局</div>
+    <h2>AI 编程工具栈 8 月格局：模型降价潮 + YC 开源 QM 多 Agent 框架</h2>
+    <p class="summary">
+      Terminal-Bench 2.1 最新独立排名（8 月 5 日更新）：GPT-5.6 Sol 以 91.9% 居首，Claude Mythos 5 以 88.0% 紧随其后，Grok 4.5 以 83.3% 跻身中游。模型层变革更深远：Claude Opus 5 以约 Fable 5 一半的成本达到近乎相同的编码质量；GPT-5.6 Luna 降价 80% 至 $0.20/$1.20；Claude Sonnet 5 限时 $2/$10；GLM-5.1/Qwen3 Coder/Kimi K3 等开源模型使自托管编码智能体成为现实。
+    </p>
+    <p class="summary">
+      7 月 31 日，Y Combinator 将其内部使用的 QM 多 Agent 协作框架开源（MIT 许可），支持跨模型编排，可同时驱动 Claude Code、Codex、Kimi K3 等不同后端。这标志着 AI Coding 正在从「单模型工具」进化为「多模型编排平台」。
+    </p>
+    <div class="why">
+      <strong>值得关注：</strong>三条趋势同时交汇：① 模型层 25 倍价格差距正在重塑工程团队的模型路由策略（规划用大模型，执行用便宜模型）；② YC 开源 QM 意味着「Agent 编排层」成为新的竞争高地，模型本身正在商品化；③ 开源编码模型（Kimi K3、Qwen3 Coder、GLM-5.1）的成熟使自主可控的 AI 编程栈成为可选项。对开发者而言，现在的正确问题不再是「用哪个模型」，而是「如何组合多个模型 + 多个 Agent 框架」。
+    </div>
+    <div class="source">来源：StackSpend、BenchLM、neuralcoretech、buildfastwithai | 2026-08-06</div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="index">具身智能 · 新品发布</div>
+    <h2>越疆发布全球首款「具身全栖」人形机器人「鹿萌」</h2>
+    <p class="summary">
+      8 月 5 日，越疆科技正式发布全球首款具身全栖人形机器人 DOBOT LUMO（鹿萌），身高约 1.3 米。产品搭载全栈自研的「空弈」具身大模型，实现三大核心突破：多模态情绪感知（视觉+语音融合识别情绪并主动共情）、三维空间理解与主动行动（国内领先的拟人步态，长距离多地形自然行走）、自主学习与长期进化（基于场景数据闭环持续迭代）。
+    </p>
+    <p class="summary">
+      定位「具身全栖」涵盖四个维度：空间全栖（家庭/商场/校园无缝切换）、角色全栖（生活搭子/运动玩伴/科普伙伴）、能力全栖（视觉+语音+运动融合）、周期全栖（越用越懂用户）。同时面向教育场景提供二次开发平台，覆盖 K12 至高校科研。
+    </p>
+    <div class="why">
+      <strong>值得关注：</strong>越疆此前以工业协作机器人和多足巡检机器人见长，鹿萌的发布意味着其正式切入消费级人形机器人赛道。产品定义上跳出了「语音交互 + 固定底座」的传统陪伴机器人范式，以具身智能为底座实现「人在哪，陪伴在哪」。这标志着中国消费级人形机器人从「玩具化」向「具身化」的代际升级，越疆也成为国内少数同时覆盖 B 端工业与 C 端消费的具身智能企业。
+    </div>
+    <div class="source">来源：深圳新闻网、证券时报、大众新闻 | 2026-08-05 / 2026-08-06</div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <div class="index">具身智能 · 产业趋势</div>
+    <h2>具身智能量产加速：Agibot 下线 15000 台，三菱月产千台，宇树冲刺 IPO</h2>
+    <p class="summary">
+      本周多条产线动态共同指向一个趋势——具身智能正从实验室走向规模化制造。Agibot（智元机器人）宣布第 15000 台人形机器人 G2 下线，从 10000 台到 15000 台仅用约 2 个月，产能爬坡持续加速。日本三菱宣布将改造闲置发动机工厂，月产 1000 台人形机器人。特斯拉明确 Optimums 弗里蒙特产线年内投产，马斯克称人形机器人是「公司史上最难量产爬坡」。
+    </p>
+    <p class="summary">
+      资本市场同步升温：宇树科技 7 月 30 日启动 IPO 发行，有望成为「A 股人形机器人第一股」；智元启动赴港上市流程；帕西尼完成 10 亿元融资估值破百亿。中国上半年具身智能赛道融资 935 亿元，同比增长 137%。中信建投判断：8 月 19-23 日世界机器人大会临近，8 月将是机器人「量产验证 × 资本化」的密集催化窗口。
+    </p>
+    <div class="why">
+      <strong>值得关注：</strong>不同于去年「讲故事」阶段，2026 年的核心命题已转向规模化交付。蓝思科技预计全年交付数百万台；银河通用 G1 已在全国 20+ 城市部署百余家门店、进入宁德时代/博世/丰田产线；人形机器人整机成本从百万级降至 10-20 万元。但虎嗅提醒：量产加速的同时，从实验室演示到工厂实际部署的鸿沟仍在——可靠性、一致性、ROI 才是真正的验收标准。
+    </div>
+    <div class="source">来源：智通财经、中信建投研报、MachineDawn、新浪财经 | 2026-08-06</div>
+  </div>
+
+  <div class="footer">
+    <p>AI 日报 · 2026-08-06 | 自动生成于 WorkBuddy 每日推送</p>
+    <p style="margin-top:4px">数据来源：财联社、虎嗅、StackSpend、BenchLM、CNBC、中信建投等</p>
+  </div>
+
+</div>
+</body>
+</html>
