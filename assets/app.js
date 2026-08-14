@@ -234,9 +234,14 @@ $('#slAdd').addEventListener('click', () => {
 
 // ---- PWA ----
 let defPrompt=null;
-window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); defPrompt=e; $('#installBar').hidden=false; });
+window.addEventListener('beforeinstallprompt', e=>{
+  // 已安装(独立窗口)或用户曾关闭过 → 不再弹
+  const installed = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (installed || localStorage.getItem('wb_install_dismissed') === '1') { e.preventDefault(); return; }
+  e.preventDefault(); defPrompt=e; $('#installBar').hidden=false;
+});
 $('#installBtn').addEventListener('click', ()=>{ if(defPrompt){ defPrompt.prompt(); defPrompt.userChoice.then(()=>{ $('#installBar').hidden=true; }); } });
-$('#installClose').addEventListener('click', ()=>{ $('#installBar').hidden=true; });
+$('#installClose').addEventListener('click', ()=>{ $('#installBar').hidden=true; localStorage.setItem('wb_install_dismissed','1'); });
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js').then(reg=>reg&&reg.update()).catch(()=>{});
