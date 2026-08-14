@@ -66,7 +66,7 @@ function renderHome() {
   const wd = ['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];
   $('#heroDate').textContent = `${now.getMonth()+1} 月 ${now.getDate()} 日 · ${wd}`;
   const h = now.getHours();
-  $('#heroHello').textContent = (h<11?'早上好':h<14?'中午好':h<18?'下午好':'晚上好') + '，海辉';
+  $('#heroHello').textContent = (h<11?'早上好':h<14?'中午好':h<18?'下午好':'晚上好') + '，蓝莓';
 }
 
 // ---- AI 创作 ----
