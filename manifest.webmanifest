@@ -1,11 +1,11 @@
 {
-  "name": "我的工作台",
-  "short_name": "工作台",
+  "name": "蓝莓工作站",
+  "short_name": "蓝莓",
   "description": "工作、家庭学习与个人健康的统一工作台",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#f5f6fa",
-  "theme_color": "#534AB7",
+  "background_color": "#FBF8F4",
+  "theme_color": "#7C6BAE",
   "lang": "zh-CN",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
