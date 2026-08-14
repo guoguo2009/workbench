@@ -96,5 +96,6 @@ body {
 .install-bar { position:fixed; bottom:86px; left:50%; transform:translateX(-50%); width:calc(100% - 24px); max-width:496px; background:linear-gradient(135deg,#7C6BAE,#E6B3C9); color:#fff; border-radius:16px; padding:10px 14px; display:flex; align-items:center; gap:10px; font-size:13px; z-index:60; box-shadow:0 10px 26px rgba(124,107,174,.3); }
 .install-bar span { flex:1; }
 .install-bar button { border:none; border-radius:10px; padding:7px 12px; font-size:13px; cursor:pointer; }
+.install-bar[hidden] { display:none; }
 #installBtn { background:#fff; color:var(--berry); font-weight:600; }
 #installClose { background:rgba(255,255,255,.22); color:#fff; }
