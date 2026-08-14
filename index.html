@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>我的工作台</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- 首页 -->
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-date" id="heroDate">—</div>
+      <h1 class="hero-title">我的工作台</h1>
+      <p class="hero-sub" id="heroHello">你好，海辉</p>
+    </div>
+    <div class="zone-grid" id="zoneGrid"></div>
+  </section>
+
+  <!-- 学习 -->
+  <section class="page" id="page-learn">
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>学习</span></div>
+    <div class="card-list">
+      <div class="module-card" data-accent="green" data-go="page-english"><span class="mc-ico">📘</span><div><div class="mc-title">英语平台</div><div class="mc-sub">译林 3-6 年级 · 听说读写</div></div><span class="mc-arrow">›</span></div>
+      <div class="module-card" data-accent="blue" data-go="page-chinese"><span class="mc-ico">📗</span><div><div class="mc-title">语文平台</div><div class="mc-sub">字词默写 · 背诵打卡</div></div><span class="mc-arrow">›</span></div>
+      <div class="module-card" data-accent="amber" data-go="page-math"><span class="mc-ico">🔢</span><div><div class="mc-title">数学平台</div><div class="mc-sub">口算练习 · 闯关</div></div><span class="mc-arrow">›</span></div>
+    </div>
+  </section>
+
+  <!-- 健康 -->
+  <section class="page" id="page-health">
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>健康</span></div>
+    <div class="card-list">
+      <div class="module-card" data-accent="teal" data-go="page-exercise"><span class="mc-ico">🏃</span><div><div class="mc-title">运动记录</div><div class="mc-sub" id="exSummary">今天还没记录</div></div><span class="mc-arrow">›</span></div>
+      <div class="module-card" data-accent="coral" data-go="page-diet"><span class="mc-ico">🍱</span><div><div class="mc-title">饮食</div><div class="mc-sub" id="dietSummary">今天还没记录</div></div><span class="mc-arrow">›</span></div>
+      <div class="module-card" data-accent="indigo" data-go="page-sleep"><span class="mc-ico">😴</span><div><div class="mc-title">睡眠</div><div class="mc-sub" id="sleepSummary">昨晚未记录</div></div><span class="mc-arrow">›</span></div>
+    </div>
+  </section>
+
+  <!-- AI 新闻 -->
+  <section class="page" id="page-ai">
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>AI 新闻</span></div>
+    <div class="card-list" id="aiList"></div>
+    <p class="hint">聚焦 AI Coding &amp; 具身智能 · 每日精选。新日报可随时让我生成。</p>
+  </section>
+
+  <!-- 我的 -->
+  <section class="page" id="page-about">
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>我的</span></div>
+    <div class="about">
+      <div class="about-avatar">海</div>
+      <h2>海辉的工作台</h2>
+      <p class="muted">一个链接，装下工作、家庭学习与个人健康。</p>
+      <ul class="about-list">
+        <li>工作 / 内容：AI 新闻日报</li>
+        <li>家庭学习：英语 · 语文 · 数学</li>
+        <li>个人健康：运动 · 饮食 · 睡眠</li>
+      </ul>
+      <p class="muted small">数据均保存在本机，不上传服务器。</p>
+    </div>
+  </section>
+
+  <!-- 英语（嵌入） -->
+  <section class="page" id="page-english">
+    <div class="topbar"><button class="back" data-go="page-learn">‹</button><span>英语平台</span></div>
+    <iframe id="englishFrame" class="embed" src="https://guoguo2009.github.io/english-desk/" title="英语平台"></iframe>
+  </section>
+
+  <!-- 语文 -->
+  <section class="page" id="page-chinese">
+    <div class="topbar"><button class="back" data-go="page-learn">‹</button><span>语文 · 字词本</span></div>
+    <div class="form-row">
+      <input id="cnWord" placeholder="字词，如：蜿蜒">
+      <input id="cnPy" placeholder="拼音">
+      <input id="cnMean" placeholder="释义">
+      <button class="btn-primary" id="cnAdd">添加</button>
+    </div>
+    <div class="card-list" id="cnList"></div>
+  </section>
+
+  <!-- 数学 -->
+  <section class="page" id="page-math">
+    <div class="topbar"><button class="back" data-go="page-learn">‹</button><span>数学 · 口算</span></div>
+    <div class="quiz" id="quizBox"></div>
+    <div class="form-row">
+      <input id="mathAns" placeholder="答案" inputmode="numeric">
+      <button class="btn-primary" id="mathCheck">提交</button>
+      <button class="btn-ghost" id="mathNext">下一题</button>
+    </div>
+    <p class="hint" id="mathResult"></p>
+  </section>
+
+  <!-- 运动 -->
+  <section class="page" id="page-exercise">
+    <div class="topbar"><button class="back" data-go="page-health">‹</button><span>运动记录</span></div>
+    <div class="form-row">
+      <select id="exType"><option>跑步</option><option>步行</option><option>骑行</option><option>力量</option><option>球类</option><option>其他</option></select>
+      <input id="exMin" type="number" placeholder="分钟" inputmode="numeric">
+      <button class="btn-primary" id="exAdd">记录</button>
+    </div>
+    <div class="card-list" id="exList"></div>
+  </section>
+
+  <!-- 饮食 -->
+  <section class="page" id="page-diet">
+    <div class="topbar"><button class="back" data-go="page-health">‹</button><span>饮食</span></div>
+    <div class="form-row">
+      <select id="dietMeal"><option>早餐</option><option>午餐</option><option>晚餐</option><option>加餐</option></select>
+      <input id="dietFood" placeholder="吃了什么">
+      <button class="btn-primary" id="dietAdd">记录</button>
+    </div>
+    <div class="card-list" id="dietList"></div>
+  </section>
+
+  <!-- 睡眠 -->
+  <section class="page" id="page-sleep">
+    <div class="topbar"><button class="back" data-go="page-health">‹</button><span>睡眠</span></div>
+    <div class="form-row">
+      <input id="slBed" type="time" value="22:30">
+      <input id="slWake" type="time" value="07:00">
+      <select id="slQuality"><option value="5">质量好</option><option value="4">较好</option><option value="3">一般</option><option value="2">偏差</option><option value="1">很差</option></select>
+    </div>
+    <div class="form-row">
+      <button class="btn-primary" id="slAdd">记录昨晚</button>
+    </div>
+    <div class="card-list" id="slList"></div>
+  </section>
+
+  <!-- 底部导航 -->
+  <nav class="tabbar">
+    <button class="tab active" data-go="page-home"><span>🏠</span>首页</button>
+    <button class="tab" data-go="page-learn"><span>📚</span>学习</button>
+    <button class="tab" data-go="page-health"><span>💪</span>健康</button>
+    <button class="tab" data-go="page-ai"><span>🤖</span>AI</button>
+    <button class="tab" data-go="page-about"><span>👤</span>我的</button>
+  </nav>
+
+  <div id="installBar" class="install-bar" hidden>
+    <span>添加到主屏幕，随时打开</span>
+    <button id="installBtn">安装</button>
+    <button id="installClose">✕</button>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
