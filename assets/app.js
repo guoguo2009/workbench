@@ -1,4 +1,4 @@
-// ===== 我的工作台 app.js =====
+// ===== 蓝莓工作站 app.js =====
 const STORE = 'wb_data_v1';
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
@@ -16,35 +16,51 @@ function go(id) {
   if (id === 'page-home') renderHome();
   if (id === 'page-ai') renderAI();
   if (id === 'page-chinese') renderChinese();
+  if (id === 'page-work') renderWork();
   if (id === 'page-exercise') renderExercise();
   if (id === 'page-diet') renderDiet();
   if (id === 'page-sleep') renderSleep();
 }
 $$('[data-go]').forEach(el => el.addEventListener('click', () => go(el.dataset.go)));
 
-// ---- 首页 ----
-const ZONES = [
-  { id:'page-ai',      ico:'🤖', title:'AI 新闻', sub:'每日精选', color:'var(--purple)', key:'ai' },
-  { id:'page-english', ico:'📘', title:'英语平台', sub:'听说读写', color:'var(--green)', key:'en' },
-  { id:'page-chinese', ico:'📗', title:'语文', sub:'字词默写', color:'var(--blue)', key:'cn' },
-  { id:'page-math',    ico:'🔢', title:'数学', sub:'口算练习', color:'var(--amber)', key:'math' },
-  { id:'page-exercise',ico:'🏃', title:'运动', sub:'今日记录', color:'var(--teal)', key:'ex' },
-  { id:'page-diet',    ico:'🍱', title:'饮食', sub:'今日记录', color:'var(--coral)', key:'diet' },
-  { id:'page-sleep',   ico:'😴', title:'睡眠', sub:'昨晚记录', color:'var(--indigo)', key:'sl' },
+// ---- 首页（分组） ----
+const GROUPS = [
+  { name:'孩子学习', items:[
+    { id:'page-english', ico:'📘', title:'英语平台', sub:'听说读写', color:'var(--green)', key:'en' },
+    { id:'page-chinese', ico:'📗', title:'语文', sub:'字词默写', color:'var(--blue)', key:'cn' },
+    { id:'page-math',    ico:'🔢', title:'数学', sub:'口算练习', color:'var(--amber)', key:'math' },
+  ]},
+  { name:'创作 & 工作', items:[
+    { id:'page-ai',   ico:'🤖', title:'AI 创作', sub:'每日精选', color:'var(--berry-light)', key:'ai' },
+    { id:'page-work', ico:'🗂️', title:'工作', sub:'待办清单', color:'var(--blush)', key:'wk' },
+  ]},
+  { name:'健康生活', items:[
+    { id:'page-exercise', ico:'🏃', title:'运动', sub:'今日记录', color:'var(--teal)', key:'ex' },
+    { id:'page-diet',     ico:'🍱', title:'饮食', sub:'今日记录', color:'var(--coral)', key:'diet' },
+    { id:'page-sleep',    ico:'😴', title:'睡眠', sub:'昨晚记录', color:'var(--indigo)', key:'sl' },
+  ]},
 ];
 function renderHome() {
   const d = load();
-  const grid = $('#zoneGrid'); grid.innerHTML = '';
-  ZONES.forEach(z => {
-    let sub = z.sub;
-    if (z.key === 'ex')   sub = (d.exercise||[]).filter(r=>r.date===today()).reduce((s,r)=>s+(+r.min||0),0) ? `今天 ${(d.exercise||[]).filter(r=>r.date===today()).reduce((s,r)=>s+(+r.min||0),0)} 分钟` : '今天还没记录';
-    if (z.key === 'diet') sub = (d.diet||[]).filter(r=>r.date===today()).length ? `今天 ${(d.diet||[]).filter(r=>r.date===today()).length} 餐` : '今天还没记录';
-    if (z.key === 'sl')   { const last=(d.sleep||[])[0]; sub = last ? `昨晚 ${last.hours} 小时` : '昨晚未记录'; }
-    const el = document.createElement('div');
-    el.className = 'zone-card'; el.dataset.go = z.id;
-    el.innerHTML = `<div class="zc-bar" style="background:${z.color}"></div><div class="zc-ico">${z.ico}</div><div class="zc-title">${z.title}</div><div class="zc-sub">${sub}</div>`;
-    el.addEventListener('click', () => go(z.id));
-    grid.appendChild(el);
+  const wrap = $('#zoneGrid'); wrap.innerHTML = '';
+  GROUPS.forEach(g => {
+    const head = document.createElement('div');
+    head.className = 'zone-head'; head.textContent = g.name;
+    wrap.appendChild(head);
+    const grid = document.createElement('div');
+    grid.className = 'zone-grid';
+    g.items.forEach(z => {
+      let sub = z.sub;
+      if (z.key === 'ex')   sub = (d.exercise||[]).filter(r=>r.date===today()).reduce((s,r)=>s+(+r.min||0),0) ? `今天 ${(d.exercise||[]).filter(r=>r.date===today()).reduce((s,r)=>s+(+r.min||0),0)} 分钟` : '今天还没记录';
+      if (z.key === 'diet') sub = (d.diet||[]).filter(r=>r.date===today()).length ? `今天 ${(d.diet||[]).filter(r=>r.date===today()).length} 餐` : '今天还没记录';
+      if (z.key === 'sl')   { const last=(d.sleep||[])[0]; sub = last ? `昨晚 ${last.hours} 小时` : '昨晚未记录'; }
+      const el = document.createElement('div');
+      el.className = 'zone-card'; el.dataset.go = z.id;
+      el.innerHTML = `<div class="zc-bar" style="background:${z.color}"></div><div class="zc-ico">${z.ico}</div><div class="zc-title">${z.title}</div><div class="zc-sub">${sub}</div>`;
+      el.addEventListener('click', () => go(z.id));
+      grid.appendChild(el);
+    });
+    wrap.appendChild(grid);
   });
   const now = new Date();
   const wd = ['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];
@@ -53,7 +69,7 @@ function renderHome() {
   $('#heroHello').textContent = (h<11?'早上好':h<14?'中午好':h<18?'下午好':'晚上好') + '，海辉';
 }
 
-// ---- AI 新闻 ----
+// ---- AI 创作 ----
 async function renderAI() {
   const list = $('#aiList'); list.innerHTML = '<p class="hint">加载中…</p>';
   let items = [];
@@ -66,13 +82,8 @@ async function renderAI() {
   items.forEach(it => {
     const el = document.createElement('div');
     el.className = 'module-card';
-    el.innerHTML = `<span class="mc-ico">📰</span><div><div class="mc-title">${it.title}</div><div class="mc-sub">${it.date}</div></div><span class="mc-arrow">›</span>`;
-    el.addEventListener('click', () => {
-      $$('.page').forEach(p=>p.classList.remove('active'));
-      const v = $('#page-english'); // reuse a viewer? simpler: open new page
-      // build a temp viewer page
-      showAIViewer(it.file, it.title);
-    });
+    el.innerHTML = `<span class="mc-ico">✨</span><div><div class="mc-title">${it.title}</div><div class="mc-sub">${it.date}</div></div><span class="mc-arrow">›</span>`;
+    el.addEventListener('click', () => showAIViewer(it.file, it.title));
     list.appendChild(el);
   });
 }
@@ -88,6 +99,26 @@ function showAIViewer(file, title) {
   $('#page-aiview .topbar span').textContent = title;
   go('page-aiview');
 }
+
+// ---- 工作 待办 ----
+function renderWork() {
+  const d = load(); d.work = d.work || []; save(d);
+  const list = $('#wkList'); list.innerHTML = '';
+  d.work.forEach((t, i) => {
+    const el = document.createElement('div'); el.className = 'rec' + (t.done ? ' rec-done' : '');
+    el.innerHTML = `<div><div class="rec-main">${t.done ? '✓ ' : ''}${t.text}</div><div class="rec-sub">${t.date || ''}</div></div><button class="rec-del">删除</button>`;
+    el.querySelector('.rec-main').addEventListener('click', () => { t.done = !t.done; save(d); renderWork(); });
+    el.querySelector('.rec-del').addEventListener('click', () => { d.work.splice(i,1); save(d); renderWork(); });
+    list.appendChild(el);
+  });
+  if (!d.work.length) list.innerHTML = '<p class="hint">还没有待办，添加一件今天想完成的事。</p>';
+}
+$('#wkAdd').addEventListener('click', () => {
+  const v = $('#wkTask').value.trim(); if (!v) return;
+  const d = load(); d.work = d.work || [];
+  d.work.unshift({ text:v, date:today(), done:false });
+  save(d); $('#wkTask').value = ''; renderWork();
+});
 
 // ---- 语文 字词本 ----
 function renderChinese() {
