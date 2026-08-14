@@ -1,4 +1,4 @@
-const CACHE = 'wb-v2';
+const CACHE = 'wb-v3';
 self.addEventListener('install', (e) => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil((async () => {
   // 清掉旧版本缓存，避免一直显示旧首页
