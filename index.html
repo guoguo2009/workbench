@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>我的工作台</title>
+<title>蓝莓工作站</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="stylesheet" href="assets/style.css">
@@ -15,20 +15,30 @@
   <section class="page active" id="page-home">
     <div class="hero">
       <div class="hero-date" id="heroDate">—</div>
-      <h1 class="hero-title">我的工作台</h1>
+      <h1 class="hero-title">蓝莓工作站</h1>
       <p class="hero-sub" id="heroHello">你好，海辉</p>
     </div>
-    <div class="zone-grid" id="zoneGrid"></div>
+    <div class="zone-wrap" id="zoneGrid"></div>
   </section>
 
-  <!-- 学习 -->
+  <!-- 孩子学习 -->
   <section class="page" id="page-learn">
-    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>学习</span></div>
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>孩子学习</span></div>
     <div class="card-list">
       <div class="module-card" data-accent="green" data-go="page-english"><span class="mc-ico">📘</span><div><div class="mc-title">英语平台</div><div class="mc-sub">译林 3-6 年级 · 听说读写</div></div><span class="mc-arrow">›</span></div>
       <div class="module-card" data-accent="blue" data-go="page-chinese"><span class="mc-ico">📗</span><div><div class="mc-title">语文平台</div><div class="mc-sub">字词默写 · 背诵打卡</div></div><span class="mc-arrow">›</span></div>
       <div class="module-card" data-accent="amber" data-go="page-math"><span class="mc-ico">🔢</span><div><div class="mc-title">数学平台</div><div class="mc-sub">口算练习 · 闯关</div></div><span class="mc-arrow">›</span></div>
     </div>
+  </section>
+
+  <!-- 工作 -->
+  <section class="page" id="page-work">
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>工作</span></div>
+    <div class="form-row">
+      <input id="wkTask" placeholder="今天想完成的一件事…">
+      <button class="btn-primary" id="wkAdd">添加</button>
+    </div>
+    <div class="card-list" id="wkList"></div>
   </section>
 
   <!-- 健康 -->
@@ -41,11 +51,11 @@
     </div>
   </section>
 
-  <!-- AI 新闻 -->
+  <!-- AI 创作 -->
   <section class="page" id="page-ai">
-    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>AI 新闻</span></div>
+    <div class="topbar"><button class="back" data-go="page-home">‹</button><span>AI 创作</span></div>
     <div class="card-list" id="aiList"></div>
-    <p class="hint">聚焦 AI Coding &amp; 具身智能 · 每日精选。新日报可随时让我生成。</p>
+    <p class="hint">聚焦 AI Coding &amp; 具身智能 · 每日精选创作灵感。新日报随时可生成。</p>
   </section>
 
   <!-- 我的 -->
@@ -53,11 +63,11 @@
     <div class="topbar"><button class="back" data-go="page-home">‹</button><span>我的</span></div>
     <div class="about">
       <div class="about-avatar">海</div>
-      <h2>海辉的工作台</h2>
+      <h2>海辉的蓝莓工作站</h2>
       <p class="muted">一个链接，装下工作、家庭学习与个人健康。</p>
       <ul class="about-list">
-        <li>工作 / 内容：AI 新闻日报</li>
-        <li>家庭学习：英语 · 语文 · 数学</li>
+        <li>创作 / 工作：AI 创作日报 · 待办清单</li>
+        <li>家庭学习：英语 · 语文 · 数学（孩子学习）</li>
         <li>个人健康：运动 · 饮食 · 睡眠</li>
       </ul>
       <p class="muted small">数据均保存在本机，不上传服务器。</p>
@@ -132,15 +142,16 @@
 
   <!-- 底部导航 -->
   <nav class="tabbar">
-    <button class="tab active" data-go="page-home"><span>🏠</span>首页</button>
-    <button class="tab" data-go="page-learn"><span>📚</span>学习</button>
-    <button class="tab" data-go="page-health"><span>💪</span>健康</button>
-    <button class="tab" data-go="page-ai"><span>🤖</span>AI</button>
-    <button class="tab" data-go="page-about"><span>👤</span>我的</button>
+    <button class="tab active" data-go="page-home"><span>🏡</span>首页</button>
+    <button class="tab" data-go="page-learn"><span>📚</span>孩子学习</button>
+    <button class="tab" data-go="page-work"><span>🗂️</span>工作</button>
+    <button class="tab" data-go="page-health"><span>💗</span>健康</button>
+    <button class="tab" data-go="page-ai"><span>🎨</span>AI创作</button>
+    <button class="tab" data-go="page-about"><span>🌸</span>我的</button>
   </nav>
 
   <div id="installBar" class="install-bar" hidden>
-    <span>添加到主屏幕，随时打开</span>
+    <span>添加到主屏幕，随时打开蓝莓工作站</span>
     <button id="installBtn">安装</button>
     <button id="installClose">✕</button>
   </div>
